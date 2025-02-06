@@ -239,7 +239,8 @@ public class BackgroundLocationUpdateService extends Service
                 intentFlags
         );
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        // LUIZ COMMENT if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             registerReceiver(locationUpdateReceiver, new IntentFilter(Constants.LOCATION_UPDATE), Context.RECEIVER_NOT_EXPORTED);
             registerReceiver(detectedActivitiesReceiver, new IntentFilter(Constants.DETECTED_ACTIVITY_UPDATE), Context.RECEIVER_NOT_EXPORTED);
 
@@ -346,7 +347,7 @@ public class BackgroundLocationUpdateService extends Service
 
             Notification notification = builder.build();
             //notification.flags |= Notification.FLAG_ONGOING_EVENT | Notification.FLAG_FOREGROUND_SERVICE | Notification.FLAG_NO_CLEAR;
-            //if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            // LUIZ COMMENT if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 startForeground(startId, notification);
             } else {
