@@ -12,7 +12,10 @@
     <engines>
         <engine name="cordova" version=">=9.0.0"/>
     </engines>
-
+    
+    <preference name="android-targetSdkVersion" value="34" />
+    <preference name="android-compileSdkVersion" value="34" />
+    
     <js-module src="www/BackgroundLocationServices.js" name="BackgroundLocationServices">
         <clobbers target="plugins.backgroundLocationServices"/>
     </js-module>
