@@ -346,7 +346,8 @@ public class BackgroundLocationUpdateService extends Service
 
             Notification notification = builder.build();
             //notification.flags |= Notification.FLAG_ONGOING_EVENT | Notification.FLAG_FOREGROUND_SERVICE | Notification.FLAG_NO_CLEAR;
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            //if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 startForeground(startId, notification);
             } else {
                 startForeground(
